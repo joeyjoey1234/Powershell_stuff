@@ -15,11 +15,12 @@ $StringBuilder.ToString()
 $password_hash = Get-StringHash $password "MD5"
 $hash_check = 'ad9b7cace3dc076b32296d0da661c4bd'
 
-if($password_hash -eq $hash_check)
-{
+if($password_hash -eq $hash_check) {
     mkdir C:/.catsyndrome/chrome/storage/cache/browser/history/huh > $null
     cp ./id_rsa.pub C:/.catsyndrome/chrome/storage/cache/browser/history/huh/ > $null
     ./VeraCryptPortable/App/VeraCrypt/VeraCrypt.exe /s /q /v huh.txt /l X /a /password $password /pim 485 /k C:\.catsyndrome\chrome\storage\cache\browser\history\huh\id_rsa.pub /k C:\.catsyndrome\chrome\storage\cache\browser\history\huh
+    Start-Sleep -s 8
+    explorer.exe X:
     Read-Host -Prompt 'press enter when your done'
     ./VeraCryptPortable/App/VeraCrypt/VeraCrypt.exe /s /q /d /wipecache /l X
     rm -r C:\.catsyndrome\
