@@ -1,6 +1,8 @@
 # Set-ExecutionPolicy RemoteSigned needs to be ran prior
+mode con: cols=53 lines=10
 
 $password = Read-Host -Prompt 'Input your password' -AsSecureString
+$password = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($password))
 Function Get-StringHash([String] $String,$HashName = "MD5")
 {
 $StringBuilder = New-Object System.Text.StringBuilder
