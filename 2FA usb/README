@@ -21,6 +21,7 @@ Remove any traces of chrome appdata folder
 Shortcut Tartget = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1"
 
 
+Using Google Authenticator TOTP = https://dan.hersam.com/tools/gen-qr-code.html
 
 IDEA* Using hashes as a keyfile or a password for encyrpted file, Ex. HASH of a webpage, Hash of a private key, Hash of a second password, 
 IDEA* Using 2 Factor Auth to unlock, Would have to use somthing very simple,  Google Authenticator OTP, that corrolates with a privatekey
