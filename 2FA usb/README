@@ -1,1 +1,27 @@
-d
+This Powershell script enables you to carry around a Powershell VeraCrypt mounting USB
+This Uses a Veracrypted file, named huh.txt on root of unecrypted device
+Also a keyfile is present on root of unecrypted device named id_rsa.pub
+
+The Keyfiles are User specfic, The current script check for a key folder structure and a key file
+Key folder struc = C:\.catsyndrome\chrome\storage\cache\browser\history\huh
+key file = C:\.catsyndrome\chrome\storage\cache\browser\history\huh\id_rsa.pub
+
+The script currently creates these folders and copys the id_rsa.pub file to the folder specfied in scirpt, Change this
+to what ever you want.
+
+After mount of decrpted veracrypt, script kills chrome process, Dels profile 1 Under current user appdata
+Then copies X:\ChromeData\Profile 1 to the appdata chrome folder, Under my X:\ i have a shortcut that starts chrome with the newly copied 
+chrome profile 1.
+
+After this you get a prompt to press enter, Doing so will unmount the drive, Copy the current chrome profile 1 to the X:/ then 
+Remove any traces of chrome appdata folder
+
+
+*****In case you dont know just create a chrome shortcut with a tartget profile then edit the target as such.
+Shortcut Tartget = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1"
+
+
+
+IDEA* Using hashes as a keyfile or a password for encyrpted file, Ex. HASH of a webpage, Hash of a private key, Hash of a second password, 
+IDEA* Using 2 Factor Auth to unlock, Would have to use somthing very simple,  Google Authenticator OTP, that corrolates with a privatekey
+to the current time or some known var to create a OTP, Implementing some short algo.
