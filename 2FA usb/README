@@ -1,5 +1,5 @@
-This Powershell script enables you to carry around a Powershell VeraCrypt mounting USB
-This Uses a Veracrypted file, named huh.txt on root of unecrypted device
+This Powershell script enables you to carry around a Powershell VeraCrypt encrypted container mounting USB
+This Uses a Veracrypted file, named huh.txt on root of unecrypted device you can change the name of this to any thing
 Also a keyfile is present on root of unecrypted device named id_rsa.pub
 
 The Keyfiles are User specfic, The current script check for a key folder structure and a key file
@@ -35,3 +35,7 @@ Using Google Authenticator TOTP = https://dan.hersam.com/tools/gen-qr-code.html
 IDEA* Using hashes as a keyfile or a password for encyrpted file, Ex. HASH of a webpage, Hash of a private key, Hash of a second password, 
 IDEA* Using 2 Factor Auth to unlock, Would have to use somthing very simple,  Google Authenticator OTP, that corrolates with a privatekey
 to the current time or some known var to create a OTP, Implementing some short algo.
+
+
+
+I will make everything more user friendly when i complete this project
