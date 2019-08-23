@@ -15,6 +15,36 @@ $StringBuilder.ToString()
 $password_hash = Get-StringHash $password "MD5"
 $hash_check = 'ad9b7cace3dc076b32296d0da661c4bd'
 
+
+$otp_pin_hash_check = '96BB494918A3F69A9128574BF73B2C01'
+
+$pin = Read-Host -Prompt 'Please input your pin'
+$otp_hash_pin = Get-StringHash $pin "MD5"
+
+Function OTP_Check {
+    $OTP = [math]::Round(((New-TimeSpan -Start (Get-Date "01/01/1970") -End (Get-Date)).TotalSeconds / 30)) * $pin
+    $OTP = $OTP.ToString()
+    $OTP = $OTP.Substring(8)
+    $OTP = [int]$OTP
+    $user_otp = Read-Host -Prompt 'Please input your OTP on your phone'
+    if($OTP -eq $user_otp) {
+    Login-in
+    exit
+    }else{
+    echo 'Recalulating'
+    OTP_Check
+    }
+}
+
+Function OTP_Hashcheck {
+    if($otp_hash_pin -eq $otp_pin_hash_check) {
+    OTP_Check
+    }else{
+    OTP_Hashcheck
+    }
+}
+
+
 Function Login-in{ 
     mkdir C:/.catsyndrome/chrome/storage/cache/browser/history/huh > $null
     cp ./id_rsa.pub C:/.catsyndrome/chrome/storage/cache/browser/history/huh/ > $null
@@ -45,7 +75,7 @@ Function Login-in{
 Function Check-and-Login{
 
     if($password_hash -eq $hash_check) {
-        Login-in
+        OTP_Hashcheck
         exit
     }else {
         echo "That was wrong you dumb fuck"
