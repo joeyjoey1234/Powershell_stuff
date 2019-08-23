@@ -20,6 +20,15 @@ Remove any traces of chrome appdata folder
 *****In case you dont know just create a chrome shortcut with a tartget profile then edit the target as such.
 Shortcut Tartget = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1"
 
+Please replace otp HASH with your pin hash, The script checks if your pin hash matches what is setup. and then develops a TOTP using this
+pin, python script included to calulate the TOTP on your phone or any computer. Pretty much taking this completey offline
+
+SEC ISSUES: Someone could easily Change the pin hash to equal what ever and then just calulate the TOTP just from reading the script, 
+this is more of a obsecurity technique, they would still need the first password to even unlock the encrypted storage
+
+Solution: **In progress: Create TOTP Using own server api, (Only issue with this is a MITM attack Solutions are VPN, strong localnet, 
+security though obsecurity making the server return garbage and script decodes)
+
 
 Using Google Authenticator TOTP = https://dan.hersam.com/tools/gen-qr-code.html
 
