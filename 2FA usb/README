@@ -26,12 +26,11 @@ pin, python script included to calulate the TOTP on your phone or any computer. 
 SEC ISSUES: Someone could easily Change the pin hash to equal what ever and then just calulate the TOTP just from reading the script, 
 this is more of a obsecurity technique, they would still need the first password to even unlock the encrypted storage
 
-**NO PIN VERSION*** More Secure
+**NO PIN VERSION*** More Secure Still a garbage technique **
 The no pin version trims your password hash to the numbers only and grabs the first 6 and uses that as the pin
-I the final password hash check to hide the hashe that will be used for pin generation and keeped the pin hash check.(Please replace this
-var with the hash of your password hash with the removed letters ex. hash your password (md5) remove all the letters check the hash
-with just the number replace the var($otp_pin_hash_check) in script)
-the authentication works in this order. TOTP --->> Password
+(Please replace this var with the hash of your password hash with the removed letters ex. hash your password (md5) remove 
+all the letters check the hash with just the number replace the var($otp_pin_hash_check) in script)
+the authentication works in this order.
 
 Solution: **In progress: Create TOTP Using own server api, (Only issue with this is a MITM attack Solutions are VPN, strong localnet, 
 security though obsecurity making the server return garbage and script decodes)
@@ -39,6 +38,7 @@ security though obsecurity making the server return garbage and script decodes)
 
 Using Google Authenticator TOTP = https://dan.hersam.com/tools/gen-qr-code.html
 
+IDEA* combime both pin and password together to unlock the encrypted file storage
 IDEA* Using hashes as a keyfile or a password for encyrpted file, Ex. HASH of a webpage, Hash of a private key, Hash of a second password, 
 IDEA* Using 2 Factor Auth to unlock, Would have to use somthing very simple,  Google Authenticator OTP, that corrolates with a privatekey
 to the current time or some known var to create a OTP, Implementing some short algo.
