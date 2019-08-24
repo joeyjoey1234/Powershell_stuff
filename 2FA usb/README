@@ -26,6 +26,13 @@ pin, python script included to calulate the TOTP on your phone or any computer. 
 SEC ISSUES: Someone could easily Change the pin hash to equal what ever and then just calulate the TOTP just from reading the script, 
 this is more of a obsecurity technique, they would still need the first password to even unlock the encrypted storage
 
+**NO PIN VERSION*** More Secure
+The no pin version trims your password hash to the numbers only and grabs the first 6 and uses that as the pin
+I the final password hash check to hide the hashe that will be used for pin generation and keeped the pin hash check.(Please replace this
+var with the hash of your password hash with the removed letters ex. hash your password (md5) remove all the letters check the hash
+with just the number replace the var($otp_pin_hash_check) in script)
+the authentication works in this order. TOTP --->> Password
+
 Solution: **In progress: Create TOTP Using own server api, (Only issue with this is a MITM attack Solutions are VPN, strong localnet, 
 security though obsecurity making the server return garbage and script decodes)
 
@@ -39,3 +46,9 @@ to the current time or some known var to create a OTP, Implementing some short a
 
 
 I will make everything more user friendly when i complete this project
+
+
+Quick start guide:
+
+
+
